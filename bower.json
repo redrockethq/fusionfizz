@@ -1,0 +1,32 @@
+{
+  "name": "fusionfizz",
+  "version": "0.0.0",
+  "authors": [
+    "Tyler Garlick <tjgarlick@gmail.com>"
+  ],
+  "description": "Tutorial Website",
+  "keywords": [
+    "tutorials"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.fusionfizz.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.2.0-rc.2",
+    "bootstrap": "~3.0.0",
+    "angular-route": "~1.2.0-rc.2",
+    "lodash": "~2.1.0",
+    "angular.flashr": "*",
+    "angular-promise-tracker": "~1.3.3"
+  },
+  "resolutions": {
+    "angular": "1.2.0-rc.2"
+  }
+}
