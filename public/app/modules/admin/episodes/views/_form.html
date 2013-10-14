@@ -1,0 +1,39 @@
+<form name="form" ng-submit="save()">
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" name="title" class="form-control" ng-model="episode.title" required placeholder="Episode Title"/>
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <textarea class="form-control" name="description" ng-model="episode.description" required placeholder="Episode Description"/>
+  </div>
+  <div class="form-group">
+    <label>Notes</label>
+    <textarea class="form-control" name="notes" ng-model="episode.notes" placeholder="Episode Notes"/>
+  </div>
+  <div class="form-group">
+    <label>Tags</label>
+    <input type="text" class="form-control" name="tags" ng-model="episode.tags" required placeholder="Episode Tags"/>
+  </div>
+  <div class="form-group">
+    <label>Duration</label>
+    <input type="text" class="form-control" name="duration" ng-model="episode.duration" placeholder="Episode Duration"/>
+  </div>
+  <div class="form-group">
+    <label>Video Url</label>
+    <input type="url" class="form-control" name="videoUrl" ng-model="episode.videoUrl" required placeholder="Episode Url"/>
+  </div>
+  <div class="form-group">
+    <label>Thumbnail Url</label>
+    <input type="file" class="form-control" name="thumbnailUrl" ng-model="episode.thumbnailUrl"/>
+  </div>
+  <div class="form-group">
+    <div class="checkbox">
+      <input type="checkbox" ng-model="episode.isActive"/> Active
+    </div>
+  </div>
+  <div class="form-group">
+    <a class="btn btn-default pull-left" href="#!/admin/episodes">Cancel</a>
+    <button type="submit" class="btn btn-primary pull-right" ng-disabled="form.$invalid">Save Episode</button>
+  </div>
+</form>

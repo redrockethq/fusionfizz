@@ -1,5 +1,5 @@
 {
-  "name": "application-name",
+  "name": "fusion-fizz",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -8,22 +8,24 @@
   },
   "dependencies": {
     "express": "3.3.8",
-    "nano": "~4.1.3",
     "dbc.js": "~1.0.1",
     "ejs": "~0.8.4",
-    "mongoose": "~3.6.20",
     "nconf": "~0.6.7",
     "minioc-loader": "git+ssh://git@github.com:TylerGarlick/minioc-loader.git",
-    "arango": "~0.1.1",
     "lodash": "~2.2.0",
     "q": "~0.9.7",
-    "async": "~0.2.9"
+    "async": "~0.2.9",
+    "hat": "0.0.3",
+    "uuid": "~1.4.1",
+    "mongoose": "~3.6.20",
+    "slug": "~0.3.3"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-contrib-concat": "~0.3.0",
     "expect.js": "~0.2.0",
-    "mocha": "~1.12.0"
+    "mocha": "~1.12.0",
+    "grunt-contrib-less": "~0.7.0"
   }
 }

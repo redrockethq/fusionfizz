@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('modules', ['core', 'episodes']);
+angular.module('modules', ['admin', 'core', 'episodes', 'users', 'sessions']);

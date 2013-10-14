@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <title>Fusion Fizz | Training </title>
+  <link rel="stylesheet" href="/output/css/app.css"/>
+</head>
+<body ng-controller="AppCtrl">
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><img src="/images/fusion-fizz-small.png"/></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav pull-right">
+            <li><a href="#!/episodes">Episodes</a></li>
+            <li ng-show="!currentUser"><a href="" ng-click="login()">Login</a></li>
+            <li ng-show="currentUser" class="dropdown">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown" >{{ currentUser.firstName }} {{ currentUser.lastName }} <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">My Account</a></li>
+                <li class="divider"></li>
+                <li><a href="#!/logout">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div ng-view></div>
+    </div>
+  </div>
+</div>
+
+<script src="/output/js/vendors.js"></script>
+<script src="/output/js/application.js"></script>
+</body>
+</html>
