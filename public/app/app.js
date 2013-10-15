@@ -14,19 +14,23 @@ angular.module('app', ['ngRoute', 'ngCookies', 'modules'])
   .config(function ($locationProvider) {
     $locationProvider.hashPrefix("!");
   })
-  .run(['$rootScope', '$location', '$cookies', 'Services', 'flashr',
-    function ($rootScope, $location, $cookies, services, flashr) {
+  .run(['$rootScope', '$location', '$cookies', '$window', '$http', 'Services', 'flashr', 'storage',
+    function ($rootScope, $location, $cookies, $window, $http, services, flashr, storage) {
       $rootScope.api = services;
       $rootScope.flashr = flashr;
       $rootScope.$location = $location;
       $rootScope.$cookies = $cookies;
+      $rootScope.$window = $window;
+      $rootScope.storage = storage;
 
-      if ($cookies.token) {
-        services.users.get($cookies.token).success(function (req, status) {
-          if (status === 200) {
-            $rootScope.currentUser = req;
-          }
-        })
+      var token = storage.get('token');
+      if (token) {
+        services.users.get(token)
+          .success(function (req, status) {
+            if (status === 200) {
+              $rootScope.currentUser = req;
+              $http.defaults.headers.authorization = token;
+            }
+          });
       }
-
     }]);

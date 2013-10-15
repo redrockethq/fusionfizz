@@ -18,7 +18,8 @@
     "hat": "0.0.3",
     "uuid": "~1.4.1",
     "mongoose": "~3.6.20",
-    "slug": "~0.3.3"
+    "slug": "~0.3.3",
+    "nodemailer": "~0.5.3"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

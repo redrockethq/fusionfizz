@@ -30,17 +30,18 @@ angular.module('app')
   .factory('UserService', ['$http',
     function ($http) {
 
-      var userBaseUrl = '/api/v1/users';
+      var usersBaseUrl = '/api/v1/users';
+      var userBaseUrl = '/api/v1/user';
 
       return {
         all: function () {
-          return $http.get(userBaseUrl);
+          return $http.get(usersBaseUrl);
         },
         get: function (id) {
           return $http.get(getUrlWithId(id));
         },
         post: function (episode) {
-          return $http.post(userBaseUrl, episode);
+          return $http.post(usersBaseUrl, episode);
         },
         put: function (id, episode) {
           return $http.put(getUrlWithId(id), episode);
@@ -50,11 +51,17 @@ angular.module('app')
         },
         login: function (email, password) {
           return $http.post(userBaseUrl + "/login", {email: email.toLowerCase(), password: password});
+        },
+        forgotPassword: function (email) {
+          return $http.post(userBaseUrl + '/forgot-password', { email: email.toLowerCase()});
+        },
+        resetPassword: function (token, password) {
+          return $http.put(usersBaseUrl + "/" + token + '/reset-password', { password: password });
         }
       };
 
       function getUrlWithId(id) {
-        return userBaseUrl + "/" + id;
+        return usersBaseUrl + "/" + id;
       }
     }])
   .factory('Services', ['EpisodeService', 'UserService',

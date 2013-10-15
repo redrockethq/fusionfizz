@@ -17,7 +17,8 @@ angular.module('core')
 
         modalInstance.result
           .then(function (user) {
-
+            $scope.flashr.later.success('Login was successful!');
+            $scope.$window.location.href = "/";
           });
       }
     }]);

@@ -12,6 +12,7 @@ module.exports = {
     app: {
       name: "Fusion Fizz"
     }
+
   },
   test: {
     db: "",
@@ -25,6 +26,7 @@ module.exports = {
     root: rootPath,
     app: {
       name: "Fusion Fizz"
-    }
+    },
+
   }
 };

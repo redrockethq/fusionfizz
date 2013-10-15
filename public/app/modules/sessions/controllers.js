@@ -8,10 +8,11 @@ angular.module('sessions')
       $scope.loginUser = function () {
 
         $scope.api.users.login($scope.user.email, $scope.user.password)
-          .success(function (req, status) {
+          .success(function (res, status) {
             if (status === 200) {
-              $modalInstance.close(req);
-              $scope.$cookies.token = req.token;
+              $modalInstance.close(res);
+              $scope.storage.save('token', res.token);
+              $scope.currentUser = res;
             } else {
               $scope.flashr.now.error('There was an error');
             }
@@ -40,4 +41,9 @@ angular.module('sessions')
         $scope.$location.path('/users/new');
       };
 
+    }])
+  .controller('LogoutCtrl', ['$scope', '$cookieStore',
+    function ($scope, $cookieStore) {
+      $cookieStore.remove('token');
+      $scope.$window.location.href = "/";
     }]);

@@ -1,0 +1,36 @@
+<h1>Edit Profile
+  <small>{{ user.firstName }} {{ user.lastName }}</small>
+</h1>
+<div class="row">
+  <div class="col-md-12">
+    <form name="form" autocomplete="on" ng-submit="register()">
+      <div class="form-group">
+        <input type="text" name="firstName" class="form-control" placeholder="First Name" ng-model="user.firstName" required ng-minlength="2" maxlength="128"/>
+        <p class="text-danger" ng-show="form.firstName.$error.required">First Name is required</p>
+        <p class="text-danger" ng-show="form.firstName.$error.minlength">First Name must be at least 2 characters</p>
+      </div>
+      <div class="form-group">
+        <input type="text" name="lastName" class="form-control" placeholder="Last Name" ng-model="user.lastName" required ng-minlength="2" maxlength="128"/>
+        <p class="text-danger" ng-show="form.lastName.$error.required">Last Name is required</p>
+        <p class="text-danger" ng-show="form.lastName.$error.minlength">Last Name must be at least 2 characters</p>
+      </div>
+      <div class="form-group">
+        <input type="text" name="email" class="form-control" placeholder="Email" ng-model="user.email" required ng-minlength="7" maxlength="512"/>
+        <p class="text-danger" ng-show="form.email.$error.required">Email Address is required</p>
+        <p class="text-danger" ng-show="form.email.$error.email">Valid Email Address is required</p>
+      </div>
+      <h3>Update Password</h3>
+      <p>To update your password, fill in the input fields below, otherwise, your password will remain the same</p>
+      <div class="form-group">
+        <input type="password" name="password" class="form-control" placeholder="Password" ng-model="user.password" ng-minlength="7" maxlength="56"/>
+        <p class="text-danger" ng-show="form.password.$error.minlength">Password must be at least 7 characters or more</p>
+      </div>
+      <div class="form-group">
+        <input type="password" name="passwordConfirmation" class="form-control" placeholder="Password Confirmation" ng-model="user.passwordConfirmation" ng-minlength="7" maxlength="56"/>
+        <p class="text-danger" ng-show="form.passwordConfirmation.$error.required">Password Confirmation is required</p>
+        <p class="text-danger" ng-show="form.passwordConfirmation.$error.minlength">Password Confirmation must be at least 7 characters or more</p>
+      </div>
+      <button type="submit" class="btn btn-primary pull-right" ng-disabled="form.$invalid && passwordIsValid()">Register</button>
+    </form>
+  </div>
+</div>
