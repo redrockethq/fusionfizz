@@ -11,7 +11,6 @@
     "dbc.js": "~1.0.1",
     "ejs": "~0.8.4",
     "nconf": "~0.6.7",
-    "minioc-loader": "git+ssh://git@github.com:TylerGarlick/minioc-loader.git",
     "lodash": "~2.2.0",
     "q": "~0.9.7",
     "async": "~0.2.9",
