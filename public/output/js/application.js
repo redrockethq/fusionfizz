@@ -150,13 +150,19 @@ angular.module('admin.episodes')
 
 angular.module('core')
   .controller('HomeCtrl', function ($scope) {
-
+    $scope.api.episodes.all()
+      .success(function (episodes) {
+        $scope.episodes = episodes;
+      });
   })
   .controller('ErrorCtrl', function ($scope) {
 
   })
-  .controller('AppCtrl', ['$scope', '$modal',
-    function ($scope, $modal) {
+  .controller('AppCtrl', ['$scope', '$modal', 'promiseTracker',
+    function ($scope, $modal, promiseTracker) {
+
+      $scope.waiting = promiseTracker('waiting');
+
       $scope.login = function () {
         var modalInstance = $modal.open({
           templateUrl: '/app/modules/sessions/views/login.html',
@@ -200,7 +206,7 @@ angular.module('core')
       }
     }]);
 'use strict';
-angular.module('ui', ['flashr', 'ui.bootstrap', 'angular-redactor']);
+angular.module('ui', ['flashr', 'ui.bootstrap', 'angular-redactor', 'ajoslin.promise-tracker']);
 'use strict';
 
 angular.module('episodes')
@@ -394,19 +400,19 @@ angular.module('app')
 
       return {
         all: function () {
-          return $http.get(episodeBaseUrl);
+          return $http.get(episodeBaseUrl, { tracker: 'waiting' });
         },
         get: function (id) {
-          return $http.get(getUrlWithId(id));
+          return $http.get(getUrlWithId(id), { tracker: 'waiting' });
         },
         post: function (episode) {
-          return $http.post(episodeBaseUrl, episode);
+          return $http.post(episodeBaseUrl, episode, { tracker: 'waiting' });
         },
         put: function (id, episode) {
-          return $http.put(getUrlWithId(id), episode);
+          return $http.put(getUrlWithId(id), episode, { tracker: 'waiting' });
         },
         destroy: function (id) {
-          return $http.delete(getUrlWithId(id));
+          return $http.delete(getUrlWithId(id), { tracker: 'waiting' });
         }
       };
 
@@ -422,28 +428,28 @@ angular.module('app')
 
       return {
         all: function () {
-          return $http.get(usersBaseUrl);
+          return $http.get(usersBaseUrl, { tracker: 'waiting' });
         },
         get: function (id) {
-          return $http.get(getUrlWithId(id));
+          return $http.get(getUrlWithId(id), { tracker: 'waiting' });
         },
         post: function (episode) {
-          return $http.post(usersBaseUrl, episode);
+          return $http.post(usersBaseUrl, episode, { tracker: 'waiting' });
         },
         put: function (id, episode) {
-          return $http.put(getUrlWithId(id), episode);
+          return $http.put(getUrlWithId(id), episode, { tracker: 'waiting' });
         },
         destroy: function (id) {
-          return $http.delete(getUrlWithId(id));
+          return $http.delete(getUrlWithId(id), { tracker: 'waiting' });
         },
         login: function (email, password) {
-          return $http.post(userBaseUrl + "/login", {email: email.toLowerCase(), password: password});
+          return $http.post(userBaseUrl + "/login", {email: email.toLowerCase(), password: password}, { tracker: 'waiting' });
         },
         forgotPassword: function (email) {
-          return $http.post(userBaseUrl + '/forgot-password', { email: email.toLowerCase()});
+          return $http.post(userBaseUrl + '/forgot-password', { email: email.toLowerCase()}, { tracker: 'waiting' });
         },
         resetPassword: function (token, password) {
-          return $http.put(usersBaseUrl + "/" + token + '/reset-password', { password: password });
+          return $http.put(usersBaseUrl + "/" + token + '/reset-password', { password: password }, { tracker: 'waiting' });
         }
       };
 

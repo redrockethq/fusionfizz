@@ -1,10 +1,5 @@
 {
   "db": "mongodb://fusionfizz:orange5@paulo.mongohq.com:10006/fusionfizz_dev",
-  "session_secret": "For Shizzle my Nizzle",
-  "GITHUB_CLIENT_ID": "54ba8a0caeadfc26454f",
-  "GITHUB_CLIENT_SECRET": "449f53d5e27c51bfcea69e689d86e014a8cc48c0",
-  "GOOGLE_CLIENT_ID": "676087478107.apps.googleusercontent.com",
-  "GOOGLE_CLIENT_SECRET": "1Dyq_5tKPK3nq8vr8AImRErj",
   "sendgrid_username": "azure_d70c2ff6f972cfd14231e2338364694c@azure.com",
   "sendgrid_password": "nmi56tip"
 }

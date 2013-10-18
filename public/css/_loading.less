@@ -1,0 +1,57 @@
+@import "_mixins.less";
+
+@loading-background-from: rgba(205, 205, 205, .80);
+@loading-background-to: rgba(180, 180, 180, .80);
+
+@loading-content-background: #ffffff;
+@loading-content-border: 1px solid #595959;
+@loading-content-width: 400px;
+@loading-content-vertical-offset: 150px;
+@loading-content-font-color: #666;
+
+.loading-linear-gradient(@from, @to) {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(@from), to(@to)); /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-linear-gradient(top, @from, @to); /* Safari 5.1, Chrome 10+ */
+  background: -moz-linear-gradient(top, @from, @to); /* Firefox 3.6+ */
+  background: -ms-linear-gradient(top, @from, @to); /* IE 10 */
+  background: -o-linear-gradient(top, @from, @to); /* Opera 11.10+ */
+}
+
+
+.loading {
+  //.loading-linear-gradient(@loading-background-from, @loading-background-to);
+  //display: none;
+  background: @loading-background-from;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10000;
+  position: fixed;
+  display: block;
+  //  .blur(10px);
+
+  .loading-content {
+    border: @loading-content-border;
+    padding: 25px;
+    position: absolute;
+    width: @loading-content-width;
+    color: @loading-content-font-color;
+    top: 50%;
+    left: 50%;
+    margin: (@loading-content-vertical-offset * -1) 0 0 (@loading-content-width * -.5);
+    text-align: left;
+    box-shadow: 0px 0px 15px #888888;
+    background: @loading-content-background url(/images/loading.gif) right center no-repeat;
+    z-index: 10050;
+  }
+}
+
+.loading-content {
+  position: relative;
+  h3 {
+    margin: 0;
+    padding: 0;
+    line-height: 16pt;
+  }
+}

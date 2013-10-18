@@ -1,1 +1,19 @@
-<h1>Hello World</h1>
+<div class="jumbotron">
+  <h1>Fusion Fizz</h1>
+  <p>Your resource for NodeJS and Angular applications</p>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <h2>What is Fusion Fizz?</h2>
+    <p>Fusion Fizz is a collection of trainings, resources and techniques for developing robust, scalable solutions using Node.js and AngularJS.  </p>
+    <p>Fusion Fizz's goal help educate people, companies and other interested parties in technology that is quickly overtaking the software development landscape.</p>
+    <p>Thanks for stopping by, and hope that the site will become a resource.</p>
+  </div>
+  <div class="col-md-4">
+    <h3>Episodes</h3>
+    <div ng-repeat="episode in episodes | orderBy:'postedAt':true">
+      <h5><a href="#!/episodes/{{ episode._id }}">{{ episode.title }}</a></h5>
+    </div>
+  </div>
+</div>
