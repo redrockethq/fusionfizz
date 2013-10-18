@@ -11,8 +11,9 @@ toastr.options = {
 }
 
 angular.module('app', ['ngRoute', 'ngCookies', 'modules'])
-  .config(function ($locationProvider) {
+  .config(function ($locationProvider, $sceProvider) {
     $locationProvider.hashPrefix("!");
+    $sceProvider.enabled(false);
   })
   .run(['$rootScope', '$location', '$cookies', '$window', '$http', 'Services', 'flashr', 'storage',
     function ($rootScope, $location, $cookies, $window, $http, services, flashr, storage) {

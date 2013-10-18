@@ -1,0 +1,39 @@
+{
+  "name": "angular-redactor",
+  "main": "angular-redactor.js",
+  "homepage": "https://github.com/TylerGarlick/angular-redactor",
+  "authors": [
+    "Tyler Garlick <tjgarlick@gmail.com>"
+  ],
+  "description": "Directive for redactor WYSIWYG editor",
+  "keywords": [
+    "Redactor",
+    "WYSIWYG",
+    "Angular",
+    "Directives"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "demo",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "*",
+    "angular": "*",
+    "angular-route": "~1.2.0-rc.2"
+  },
+  "_release": "5b563c12c0",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "5b563c12c0d2ad58567cd16338ba806273f3db21"
+  },
+  "_source": "git://github.com/TylerGarlick/angular-redactor.git",
+  "_target": "*",
+  "_originalSource": "angular-redactor",
+  "_direct": true
+}

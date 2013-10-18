@@ -11,8 +11,9 @@ toastr.options = {
 }
 
 angular.module('app', ['ngRoute', 'ngCookies', 'modules'])
-  .config(function ($locationProvider) {
+  .config(function ($locationProvider, $sceProvider) {
     $locationProvider.hashPrefix("!");
+    $sceProvider.enabled(false);
   })
   .run(['$rootScope', '$location', '$cookies', '$window', '$http', 'Services', 'flashr', 'storage',
     function ($rootScope, $location, $cookies, $window, $http, services, flashr, storage) {
@@ -69,7 +70,7 @@ angular.module('episodes', [])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/episodes', { controller: 'EpisodesCtrl', templateUrl: '/app/modules/episodes/views/episodes.html'})
-      .when('/episodes/:slug', { controller: 'EpisodeCtrl', templateUrl: '/app/modules/episodes/views/episode.html'});
+      .when('/episodes/:id', { controller: 'EpisodeCtrl', templateUrl: '/app/modules/episodes/views/episode.html'});
   });
 
 'use strict';
@@ -199,15 +200,21 @@ angular.module('core')
       }
     }]);
 'use strict';
-angular.module('ui', ['flashr', 'ui.bootstrap']);
+angular.module('ui', ['flashr', 'ui.bootstrap', 'angular-redactor']);
 'use strict';
 
 angular.module('episodes')
   .controller('EpisodesCtrl', function ($scope) {
-
+    $scope.api.episodes.all()
+      .success(function (episodes, status) {
+        $scope.episodes = episodes;
+      });
   })
-  .controller('EpisodeCtrl', function ($scope) {
-
+  .controller('EpisodeCtrl', function ($scope, $routeParams) {
+    $scope.api.episodes.get($routeParams.id)
+      .success(function (episode, status) {
+        $scope.episode = episode;
+      });
   });
 'use strict';
 
